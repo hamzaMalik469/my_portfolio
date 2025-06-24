@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/Common%20Widgets/drawer.dart';
 import 'package:my_portfolio/Utility/icons_strings.dart';
 import 'package:my_portfolio/Utility/strings.dart';
 import 'package:my_portfolio/models/project_model.dart';
@@ -12,6 +13,7 @@ class Project extends StatelessWidget {
   Project({super.key});
 
   final List<ProjectModel> projects = [
+    // Your projects list remains unchanged...
     ProjectModel(
       pics: [
         'assets/images/home_service1.jpg',
@@ -36,32 +38,33 @@ class Project extends StatelessWidget {
       sourceCode: 'https://github.com/hamzaMalik469/home_service_app',
     ),
     ProjectModel(
-        pics: [
-          'assets/images/iub1.jpg',
-          'assets/images/iub2.jpg',
-          'assets/images/iub3.jpg',
-          'assets/images/iub4.jpg',
-        ],
-        name: 'University Transport Tracking App',
-        desc:
-            'This mobile application was developed to help students and staff of Islamia University of Bahawalpur (IUB) track university transport in real time. Built using Flutter and integrated with Firebase, the app allows users to view the live location of university buses  and route information.',
-        sourceCode: 'https://github.com/hamzaMalik469/iub_transport_app'),
-    // Add more projects here if needed
+      pics: [
+        'assets/images/iub1.jpg',
+        'assets/images/iub2.jpg',
+        'assets/images/iub3.jpg',
+        'assets/images/iub4.jpg',
+      ],
+      name: 'University Transport Tracking App',
+      desc:
+          'This mobile application was developed to help students and staff of Islamia University of Bahawalpur (IUB) track university transport in real time. Built using Flutter and integrated with Firebase, the app allows users to view the live location of university buses  and route information.',
+      sourceCode: 'https://github.com/hamzaMalik469/iub_transport_app',
+    ),
   ];
 
   void _launchURL(String url) async {
     final Uri uri = Uri.parse(url);
-    if (!await launchUrl(
-      uri,
-      mode: LaunchMode.platformDefault, // 👈 important for Web
-    )) {
+    if (!await launchUrl(uri, mode: LaunchMode.platformDefault)) {
       throw 'Could not launch $url';
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final isMobile = width < 700;
+
     return Scaffold(
+      drawer: myDrawer,
       backgroundColor: blue,
       body: SafeArea(
         child: Padding(
@@ -71,20 +74,20 @@ class Project extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NavBar(selectedPage: 'Project'),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Text(
                   projectName,
                   style: GoogleFonts.abhayaLibre(
-                    fontSize: 70,
+                    fontSize: isMobile ? 36 : 70,
                     color: white,
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 ...projects.map((project) {
                   return Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(bottom: 40),
-                    padding: EdgeInsets.all(20),
+                    margin: const EdgeInsets.only(bottom: 40),
+                    padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(16),
@@ -93,52 +96,72 @@ class Project extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // 🔹 Title Row
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image(image: AssetImage(bullet)),
-                            Text(
-                              project.name,
-                              style: GoogleFonts.abhayaLibre(
-                                fontSize: 40,
-                                color: white,
-                                fontWeight: FontWeight.bold,
+                            Image(image: AssetImage(bullet), width: 24),
+                            const SizedBox(width: 8),
+                            Flexible(
+                              child: Text(
+                                project.name,
+                                style: GoogleFonts.abhayaLibre(
+                                  fontSize: isMobile ? 26 : 40,
+                                  color: white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
+
+                        const SizedBox(height: 16),
+
+                        // 🔹 Description
                         Text(
                           project.desc,
                           style: GoogleFonts.inriaSerif(
-                            fontSize: 18,
+                            fontSize: isMobile ? 16 : 18,
                             color: white,
                           ),
+                          textAlign:
+                              isMobile ? TextAlign.justify : TextAlign.start,
                         ),
+
+                        const SizedBox(height: 24),
+
+                        // 🔹 Images
                         SizedBox(
-                          height: 32,
-                        ),
-                        SingleChildScrollView(
+                          height: isMobile ? 200 : 258,
+                          child: SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                              children: [
-                                ...project.pics.map((pic) {
-                                  return PicWidget(image: pic);
-                                }),
-                              ],
-                            )),
-                        SizedBox(height: 16),
+                              children: project.pics.map((pic) {
+                                return PicWidget(
+                                  image: pic,
+                                  width: isMobile ? 100 : 119,
+                                  height: isMobile ? 200 : 258,
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+
+                        const SizedBox(height: 16),
+
+                        // 🔹 Source Code Link
                         if (project.sourceCode.isNotEmpty)
                           InkWell(
                             onTap: () => _launchURL(project.sourceCode),
                             child: Text(
                               'Source Code',
                               style: GoogleFonts.inriaSerif(
-                                fontSize: 16,
+                                fontSize: isMobile ? 14 : 16,
                                 color: Colors.blue[200],
                                 decoration: TextDecoration.underline,
                               ),
                             ),
-                          )
+                          ),
                       ],
                     ),
                   );
@@ -156,20 +179,24 @@ class PicWidget extends StatelessWidget {
   const PicWidget({
     super.key,
     required this.image,
+    required this.width,
+    required this.height,
   });
 
   final String image;
+  final double width;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(6.0),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Image(
-          image: AssetImage(image),
-          width: 119,
-          height: 258,
+        child: Image.asset(
+          image,
+          width: width,
+          height: height,
           fit: BoxFit.cover,
         ),
       ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../Utility/colors.dart';
-import '../../Utility/icons_strings.dart';
 
 class Features extends StatelessWidget {
   const Features({
@@ -24,48 +23,80 @@ class Features extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start, // better alignment
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Image(
-          image: AssetImage(mainIcon),
-          fit: BoxFit.cover,
-        ),
-        SizedBox(height: 8),
-        Text(
-          mainString,
-          style: GoogleFonts.inriaSerif(
-            fontSize: 24,
-            color: white,
-            fontWeight: FontWeight.bold,
+    // Screen size
+    double width = MediaQuery.of(context).size.width;
+
+    // Dynamic sizes
+    double iconSize = width < 600 ? 48 : 64;
+    double fontSize = width < 600 ? 18 : 24;
+    double spacing = width < 600 ? 6 : 10;
+
+    return Padding(
+      padding: const EdgeInsets.all(12.0), // add margin between cards
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          // Main Icon
+          SizedBox(
+            height: iconSize,
+            child: Image.asset(mainIcon, fit: BoxFit.contain),
           ),
-        ),
-        SizedBox(height: 8),
-        Row(
-          children: [
-            Image(image: AssetImage(subIcon1)),
-            SizedBox(width: 8),
-            Text(
-              subIcon1String,
-              style: GoogleFonts.inriaSerif(fontSize: 24, color: white),
+          SizedBox(height: spacing),
+          // Title
+          Text(
+            mainString,
+            style: GoogleFonts.inriaSerif(
+              fontSize: fontSize,
+              color: white,
+              fontWeight: FontWeight.bold,
             ),
-          ],
-        ),
-        if (subIcon2 != null && subIcon2!.isNotEmpty) ...[
-          SizedBox(height: 8),
+          ),
+          SizedBox(height: spacing),
+          // SubFeature 1
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image(image: AssetImage(subIcon2!)),
-              SizedBox(width: 8),
+              SizedBox(
+                width: iconSize * 0.6,
+                height: iconSize * 0.6,
+                child: Image.asset(subIcon1, fit: BoxFit.contain),
+              ),
+              SizedBox(width: spacing),
               Text(
-                subIcon2String ?? '',
-                style: GoogleFonts.inriaSerif(fontSize: 24, color: white),
+                subIcon1String,
+                style: GoogleFonts.inriaSerif(
+                  fontSize: fontSize,
+                  color: white,
+                ),
               ),
             ],
           ),
+
+          // SubFeature 2 (optional)
+          if (subIcon2 != null && subIcon2!.isNotEmpty) ...[
+            SizedBox(height: spacing),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: iconSize * 0.6,
+                  height: iconSize * 0.6,
+                  child: Image.asset(subIcon2!, fit: BoxFit.contain),
+                ),
+                SizedBox(width: spacing),
+                Text(
+                  subIcon2String ?? '',
+                  style: GoogleFonts.inriaSerif(
+                    fontSize: fontSize,
+                    color: white,
+                  ),
+                ),
+              ],
+            ),
+          ],
+
         ],
-      ],
+      ),
     );
   }
 }

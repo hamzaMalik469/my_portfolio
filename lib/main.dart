@@ -5,7 +5,6 @@ import 'package:my_portfolio/Screens/About/about.dart';
 import 'package:my_portfolio/Screens/Home/home.dart';
 import 'package:my_portfolio/Screens/Project/project.dart';
 import 'package:url_strategy/url_strategy.dart';
-
 import 'firebase_options.dart';
 
 void main() async {
