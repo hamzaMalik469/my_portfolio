@@ -1,0 +1,178 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_portfolio/Utility/icons_strings.dart';
+import 'package:my_portfolio/Utility/strings.dart';
+import 'package:my_portfolio/models/project_model.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+import '../../Common Widgets/nav_bar.dart';
+import '../../Utility/colors.dart';
+
+class Project extends StatelessWidget {
+  Project({super.key});
+
+  final List<ProjectModel> projects = [
+    ProjectModel(
+      pics: [
+        'assets/images/home_service1.jpg',
+        'assets/images/home_service2.jpg',
+        'assets/images/home_service3.jpg',
+        'assets/images/home_service4.jpg',
+        'assets/images/home_service5.jpg',
+        'assets/images/home_service6.jpg',
+        'assets/images/home_service7.jpg',
+        'assets/images/home_service8.jpg',
+        'assets/images/home_service9.jpg',
+        'assets/images/home_service10.jpg',
+        'assets/images/home_service11.jpg',
+        'assets/images/home_service12.jpg',
+        'assets/images/home_service13.jpg',
+        'assets/images/home_service14.jpg',
+        'assets/images/home_service15.jpg',
+      ],
+      name: 'Home Service App',
+      desc:
+          'This mobile application connects customers with skilled workers for various home services such as plumbing, electrical work, cleaning, and more. Developed using Flutter with Firebase backend integration, the app features a role-based login system for customers and workers. Customers can browse service providers, send service requests, and track the request status. Workers can view, accept, or reject incoming requests. The app ensures smooth communication and efficient service delivery with real-time updates and a clean, intuitive UI.',
+      sourceCode: 'https://github.com/hamzaMalik469/home_service_app',
+    ),
+    ProjectModel(
+        pics: [
+          'assets/images/iub1.jpg',
+          'assets/images/iub2.jpg',
+          'assets/images/iub3.jpg',
+          'assets/images/iub4.jpg',
+        ],
+        name: 'University Transport Tracking App',
+        desc:
+            'This mobile application was developed to help students and staff of Islamia University of Bahawalpur (IUB) track university transport in real time. Built using Flutter and integrated with Firebase, the app allows users to view the live location of university buses  and route information.',
+        sourceCode: 'https://github.com/hamzaMalik469/iub_transport_app'),
+    // Add more projects here if needed
+  ];
+
+  void _launchURL(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(
+      uri,
+      mode: LaunchMode.platformDefault, // 👈 important for Web
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: blue,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                NavBar(selectedPage: 'Project'),
+                SizedBox(height: 20),
+                Text(
+                  projectName,
+                  style: GoogleFonts.abhayaLibre(
+                    fontSize: 70,
+                    color: white,
+                  ),
+                ),
+                SizedBox(height: 30),
+                ...projects.map((project) {
+                  return Container(
+                    width: double.infinity,
+                    margin: EdgeInsets.only(bottom: 40),
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(color: white.withOpacity(0.2)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Image(image: AssetImage(bullet)),
+                            Text(
+                              project.name,
+                              style: GoogleFonts.abhayaLibre(
+                                fontSize: 40,
+                                color: white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 16),
+                        Text(
+                          project.desc,
+                          style: GoogleFonts.inriaSerif(
+                            fontSize: 18,
+                            color: white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 32,
+                        ),
+                        SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                ...project.pics.map((pic) {
+                                  return PicWidget(image: pic);
+                                }),
+                              ],
+                            )),
+                        SizedBox(height: 16),
+                        if (project.sourceCode.isNotEmpty)
+                          InkWell(
+                            onTap: () => _launchURL(project.sourceCode),
+                            child: Text(
+                              'Source Code',
+                              style: GoogleFonts.inriaSerif(
+                                fontSize: 16,
+                                color: Colors.blue[200],
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
+                          )
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class PicWidget extends StatelessWidget {
+  const PicWidget({
+    super.key,
+    required this.image,
+  });
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+        child: Image(
+          image: AssetImage(image),
+          width: 119,
+          height: 258,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}
