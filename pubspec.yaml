@@ -38,6 +38,7 @@ dependencies:
   get: ^4.7.2
   url_launcher: ^6.2.5
   firebase_core: ^2.30.0
+  url_strategy: ^0.2.0
 
 
 dev_dependencies:

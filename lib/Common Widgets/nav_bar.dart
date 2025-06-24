@@ -36,7 +36,7 @@ class NavBar extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                selectedPage == "Home" ? null : Get.to(() => Home());
+                selectedPage == "Home" ? null : Get.toNamed('/Home');
               },
               child: Text(
                 "Home",
@@ -54,7 +54,7 @@ class NavBar extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                selectedPage == "Project" ? null : Get.to(() => Project());
+                selectedPage == "Project" ? null : Get.toNamed('/Project');
               },
               child: Text("Project",
                   style: GoogleFonts.inriaSerif(
@@ -70,7 +70,7 @@ class NavBar extends StatelessWidget {
             ),
             TextButton(
               onPressed: () =>
-                  selectedPage == "About" ? null : Get.to(() => About()),
+                  selectedPage == "About" ? null : Get.toNamed('/About'),
               child: Text("About",
                   style: GoogleFonts.inriaSerif(
                       fontSize: 26,
