@@ -8,3 +8,6 @@ const String window='assets/icons/Window.png';
 const String ios='assets/icons/IOS.png';
 const String web='assets/icons/web.png';
 const String bullet='assets/icons/bullet.png';
+const String github='assets/icons/GitHub.png';
+const String linkedin='assets/icons/linkedIn.png';
+const String whatsapp='assets/icons/Whatsapp.png';

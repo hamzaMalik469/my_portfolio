@@ -6,7 +6,6 @@ import 'package:my_portfolio/Screens/Home/features.dart';
 import 'package:my_portfolio/Screens/Home/short_intro.dart';
 import 'package:my_portfolio/Utility/colors.dart';
 import 'package:my_portfolio/Utility/icons_strings.dart';
-import 'package:my_portfolio/Utility/strings.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

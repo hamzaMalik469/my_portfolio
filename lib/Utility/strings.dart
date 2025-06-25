@@ -18,3 +18,8 @@ REST APIs
 State Management: Cubit, Provider,GetX
 UI/UX Designing
 Git & GitHub""";
+
+
+const String email="hamzahussain0394@gmail.com";
+const String phone="+923009718469";
+const String address="Bahawalnagar, Punjab, Pakistan";

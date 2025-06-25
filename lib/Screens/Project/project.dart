@@ -209,7 +209,8 @@ class PicWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(6.0),
       child: Container(
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
+        decoration: BoxDecoration(
+            color: white, borderRadius: BorderRadius.circular(10)),
         child: InkWell(
           onTap: () {
             Get.toNamed('/Image', arguments: {

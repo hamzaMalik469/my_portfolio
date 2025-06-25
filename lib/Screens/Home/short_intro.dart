@@ -11,7 +11,7 @@ class ShortIntro extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool isMobile = constraints.maxWidth < 800;
+        bool isMobile = constraints.maxWidth < 600;
         double width= constraints.maxWidth;
 
         return Padding(
@@ -79,7 +79,9 @@ class ShortIntro extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.white.withOpacity(0.05),
-        border: Border.all(color: white.withOpacity(0.2)),
+        border: Border.all(
+            width: 2,
+            color: white),
       ),
       child: CircleAvatar(
         radius: radius,

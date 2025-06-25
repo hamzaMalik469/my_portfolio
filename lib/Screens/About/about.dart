@@ -46,7 +46,29 @@ class About extends StatelessWidget {
                     ),
                   ],
                 ),
-
+                SizedBox(
+                  height: 8,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ContactInfo(
+                      isMobile: isMobile,
+                      icon: Icons.phone,
+                      text: phone,
+                    ),
+                    ContactInfo(
+                      isMobile: isMobile,
+                      icon: Icons.email,
+                      text: email,
+                    ),
+                    ContactInfo(
+                      isMobile: isMobile,
+                      icon: Icons.location_city,
+                      text: address,
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 32),
 
                 // 🔹 Info Boxes
@@ -76,6 +98,40 @@ class About extends StatelessWidget {
   }
 }
 
+class ContactInfo extends StatelessWidget {
+  const ContactInfo({
+    super.key,
+    required this.isMobile,
+    required this.icon,
+    required this.text,
+  });
+
+  final bool isMobile;
+  final IconData icon;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          icon,
+          color: white.withOpacity(0.7),
+          size: isMobile ? 20 : 40,
+        ),
+        SizedBox(
+          width: 8,
+        ),
+        Text(
+          text,
+          style: GoogleFonts.inriaSerif(
+              color: white, fontSize: isMobile ? 10 : 30),
+        ),
+      ],
+    );
+  }
+}
+
 class AboutBox extends StatelessWidget {
   const AboutBox({
     super.key,
@@ -91,34 +147,31 @@ class AboutBox extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final isMobile = width < 700;
 
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          // 🔹 Heading
-          Text(
-            catagory,
-            style: GoogleFonts.inriaSerif(
-              fontSize: isMobile ? 20 : 48,
-              color: white,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // 🔹 Heading
+        Text(
+          catagory,
+          style: GoogleFonts.inriaSerif(
+            fontSize: isMobile ? 20 : 48,
+            color: white,
+            fontWeight: FontWeight.bold,
           ),
-          const SizedBox(height: 10),
+        ),
+        const SizedBox(height: 10),
 
-          // 🔹 Description
-          Text(
-            des,
-            style: GoogleFonts.inriaSerif(
-              fontSize: isMobile ? 10 : 28,
-              color: white,
-            ),
-            textAlign: isMobile ? TextAlign.justify : TextAlign.left,
+        // 🔹 Description
+        Text(
+          des,
+          style: GoogleFonts.inriaSerif(
+            fontSize: isMobile ? 10 : 28,
+            color: white,
           ),
-          const SizedBox(height: 40),
-        ],
-      ),
+          textAlign: isMobile ? TextAlign.justify : TextAlign.left,
+        ),
+        const SizedBox(height: 40),
+      ],
     );
   }
 }
