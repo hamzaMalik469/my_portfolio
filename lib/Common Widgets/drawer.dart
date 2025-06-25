@@ -22,7 +22,7 @@ Drawer myDrawer = Drawer(
         onTap: () => Get.toNamed("/Home"),
       ),
       ListTile(
-        title: Text('Project', style: GoogleFonts.inriaSerif(color: white)),
+        title: Text('Projects', style: GoogleFonts.inriaSerif(color: white)),
         onTap: () => Get.toNamed("/Project"),
       ),
       ListTile(

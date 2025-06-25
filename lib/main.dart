@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_portfolio/Screens/About/about.dart';
 import 'package:my_portfolio/Screens/Home/home.dart';
+import 'package:my_portfolio/Screens/Project/imageOpen.dart';
 import 'package:my_portfolio/Screens/Project/project.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'firebase_options.dart';
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
       getPages: [
         GetPage(name: '/Home', page: ()=> Home()),
         GetPage(name: '/Project', page: ()=> Project()),
-        GetPage(name: '/About', page: ()=> About())
+        GetPage(name: '/About', page: ()=> About()),
+        GetPage(name: '/Image', page: ()=> ImageScreen())
 
 
       ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/Common%20Widgets/drawer.dart';
 import 'package:my_portfolio/Utility/icons_strings.dart';
@@ -78,7 +79,7 @@ class Project extends StatelessWidget {
                 Text(
                   projectName,
                   style: GoogleFonts.abhayaLibre(
-                    fontSize: isMobile ? 36 : 70,
+                    fontSize: isMobile ? 25 : 70,
                     color: white,
                   ),
                 ),
@@ -106,7 +107,7 @@ class Project extends StatelessWidget {
                               child: Text(
                                 project.name,
                                 style: GoogleFonts.abhayaLibre(
-                                  fontSize: isMobile ? 26 : 40,
+                                  fontSize: isMobile ? 17 : 40,
                                   color: white,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -121,7 +122,7 @@ class Project extends StatelessWidget {
                         Text(
                           project.desc,
                           style: GoogleFonts.inriaSerif(
-                            fontSize: isMobile ? 16 : 18,
+                            fontSize: isMobile ? 8 : 18,
                             color: white,
                           ),
                           textAlign:
@@ -138,9 +139,11 @@ class Project extends StatelessWidget {
                             child: Row(
                               children: project.pics.map((pic) {
                                 return PicWidget(
+                                  pics: project.pics,
                                   image: pic,
                                   width: isMobile ? 100 : 119,
                                   height: isMobile ? 200 : 258,
+                                  index: pic.indexOf(pic),
                                 );
                               }).toList(),
                             ),
@@ -180,12 +183,14 @@ class PicWidget extends StatelessWidget {
     super.key,
     required this.image,
     required this.width,
-    required this.height,
+    required this.height, required this.index, required this.pics,
   });
 
   final String image;
   final double width;
   final double height;
+  final int index;
+  final List<String> pics;
 
   @override
   Widget build(BuildContext context) {
@@ -193,11 +198,18 @@ class PicWidget extends StatelessWidget {
       padding: const EdgeInsets.all(6.0),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: Image.asset(
-          image,
-          width: width,
-          height: height,
-          fit: BoxFit.cover,
+        child: InkWell(onTap: () {
+          Get.toNamed('/Image', arguments: {
+            'images': pics,
+            'initialIndex': index,
+          });
+        },
+          child: Image.asset(
+            image,
+            width: width,
+            height: height,
+            fit: BoxFit.fill,
+          ),
         ),
       ),
     );

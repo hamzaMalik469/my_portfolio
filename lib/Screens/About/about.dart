@@ -100,7 +100,7 @@ class AboutBox extends StatelessWidget {
           Text(
             catagory,
             style: GoogleFonts.inriaSerif(
-              fontSize: isMobile ? 28 : 48,
+              fontSize: isMobile ? 20 : 48,
               color: white,
               fontWeight: FontWeight.bold,
             ),
@@ -111,7 +111,7 @@ class AboutBox extends StatelessWidget {
           Text(
             des,
             style: GoogleFonts.inriaSerif(
-              fontSize: isMobile ? 18 : 28,
+              fontSize: isMobile ? 10 : 28,
               color: white,
             ),
             textAlign: isMobile ? TextAlign.justify : TextAlign.left,

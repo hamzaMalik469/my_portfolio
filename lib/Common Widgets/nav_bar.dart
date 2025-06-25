@@ -36,7 +36,7 @@ class NavBar extends StatelessWidget {
               Row(
                 children: [
                   _navItem("Home", "/Home"),
-                  _navItem("Project", "/Project"),
+                  _navItem("Projects", "/Project"),
                   _navItem("About", "/About"),
                   ElevatedButton(
                     onPressed: () {
@@ -70,11 +70,11 @@ class NavBar extends StatelessWidget {
                 children: [
                   Text("Humza",
                       style:
-                          GoogleFonts.islandMoments(color: red, fontSize: 40)),
+                          GoogleFonts.islandMoments(color: red, fontSize: 25)),
                   const SizedBox(width: 5),
                   Text("Hussain",
                       style: GoogleFonts.islandMoments(
-                          color: white, fontSize: 40)),
+                          color: white, fontSize: 25)),
                 ],
               ),
 

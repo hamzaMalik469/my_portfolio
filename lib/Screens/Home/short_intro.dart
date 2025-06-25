@@ -20,7 +20,7 @@ class ShortIntro extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Image First (on Mobile)
-              _buildImage(context, 120),
+              _buildImage(context, isMobile? 70: 120),
               const SizedBox(height: 24),
               // Text below image
               _buildTextContent(isMobile),
@@ -51,21 +51,21 @@ class ShortIntro extends StatelessWidget {
         Text(
           'Hey, I am $name,',
           style: GoogleFonts.inriaSerif(
-              fontSize: isMobile ? 18 : 24, color: white),
+              fontSize: isMobile ? 10 : 24, color: white),
         ),
         Text(
           skilled,
-          textAlign: isMobile ? TextAlign.center : TextAlign.left,
+          textAlign:  TextAlign.left,
           style:
-          GoogleFonts.abhayaLibre(fontSize: isMobile ? 40 : 70, color: white),
+          GoogleFonts.abhayaLibre(fontSize: isMobile ? 20 : 70, color: white),
         ),
         SizedBox(
           width: isMobile ? double.infinity : 720,
           child: Text(
             homeDes,
-            textAlign: isMobile ? TextAlign.center : TextAlign.left,
+            textAlign: isMobile ? TextAlign.left : TextAlign.left,
             style:
-            GoogleFonts.inriaSerif(fontSize: isMobile ? 18 : 24, color: white),
+            GoogleFonts.inriaSerif(fontSize: isMobile ? 10 : 24, color: white),
           ),
         ),
       ],
