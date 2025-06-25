@@ -24,17 +24,17 @@ Drawer myDrawer = Drawer(
       DrawerHeader(
           decoration: BoxDecoration(color: blue),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   Text("Humza",
                       style:
-                          GoogleFonts.islandMoments(color: red, fontSize: 50)),
+                          GoogleFonts.islandMoments(color: red, fontSize: 30)),
                   const SizedBox(width: 5),
                   Text("Hussain",
                       style: GoogleFonts.islandMoments(
-                          color: white, fontSize: 50)),
+                          color: white, fontSize: 30)),
                 ],
               ),
               Row(

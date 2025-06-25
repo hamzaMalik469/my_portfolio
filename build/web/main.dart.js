@@ -46412,7 +46412,7 @@ F(){return"MainAxisAlignment."+this.b},
 nA(a,b,c,d){var s,r,q,p=this
 $label0$0:{if(B.L===p){s=c?new A.b_(a,d):new A.b_(0,d)
 break $label0$0}if(B.DX===p){s=B.L.nA(a,b,!c,d)
-break $label0$0}r=B.em===p
+break $label0$0}r=B.d2===p
 if(r&&b<2){s=B.L.nA(a,b,c,d)
 break $label0$0}q=B.DY===p
 if(q&&b===0){s=B.L.nA(a,b,c,d)
@@ -46420,7 +46420,7 @@ break $label0$0}if(B.el===p){s=new A.b_(a/2,d)
 break $label0$0}if(r){s=new A.b_(0,a/(b-1)+d)
 break $label0$0}if(q){s=a/b
 s=new A.b_(s/2,s+d)
-break $label0$0}if(B.d2===p){s=a/(b+1)
+break $label0$0}if(B.em===p){s=a/(b+1)
 s=new A.b_(s,s+d)
 break $label0$0}s=null}return s}}
 A.me.prototype={
@@ -66843,7 +66843,7 @@ A.a1_.prototype={
 $2(a,b){var s,r,q=null,p=t.D
 if(b.b>800){s=this.a
 r=this.b
-return A.e2(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,70),q),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,70),q)],p),B.C,B.L),A.e2(A.c([s.x0("Home","/Home"),s.x0("Projects","/Projects"),s.x0("About","/About"),A.e2(A.c([A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/GitHub.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0U(r),q,q,q,q),A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/linkedIn.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0V(r),q,q,q,q),A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/Whatsapp.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0W(r),q,q,q,q)],p),B.C,B.L),new A.Di(new A.a0X(s),q,q,q,A.atf(q,q,B.f,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),q,q,!1,q,!0,q,A.cn("Resume",A.aoB().$2$color$fontSize(B.cF,20),q),q)],p),B.C,B.L)],p),B.C,B.em)}else return A.e2(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,25),q),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,25),q)],p),B.C,B.L),new A.ex(new A.a0Y(),q)],p),B.C,B.em)},
+return A.e2(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,70),q),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,70),q)],p),B.C,B.L),A.e2(A.c([s.x0("Home","/Home"),s.x0("Projects","/Projects"),s.x0("About","/About"),A.e2(A.c([A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/GitHub.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0U(r),q,q,q,q),A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/linkedIn.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0V(r),q,q,q,q),A.ja(!1,!0,A.ox(B.aB,q,A.i7("assets/icons/WhatsApp.png",q,q,q),q),q,!0,q,q,q,q,q,q,q,q,new A.a0W(r),q,q,q,q)],p),B.C,B.L),new A.Di(new A.a0X(s),q,q,q,A.atf(q,q,B.f,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q,q),q,q,!1,q,!0,q,A.cn("Resume",A.aoB().$2$color$fontSize(B.cF,20),q),q)],p),B.C,B.L)],p),B.C,B.d2)}else return A.e2(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,25),q),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,25),q)],p),B.C,B.L),new A.ex(new A.a0Y(),q)],p),B.C,B.d2)},
 $S:430}
 A.a0U.prototype={
 $0(){this.a.$1("https://github.com/hamzaMalik469")},
@@ -66878,7 +66878,7 @@ $0(){return A.DS($.br(),this.a,null,t.z)},
 $S:0}
 A.of.prototype={
 O(a){var s=null,r=A.bR(a,s,t.w).w.a.a<700,q=$.afu(),p=A.cn("About ",A.af3().$2$color$fontSize(B.f,r?36:70),s),o=t.D
-return A.a3E(B.aB,A.ah_(!0,new A.dZ(B.fO,A.a5t(A.fG(A.c([new A.pH("About",s),B.ir,A.e2(A.c([p,A.cn("ME. ",A.aoB().$2$color$fontSize(B.cF,r?36:70),s)],o),B.C,B.el),A.fs(s,8,s),A.fG(A.c([new A.oI(r,B.A3,"+923009718469",s),new A.oI(r,B.A0,"hamzahussain0394@gmail.com",s),new A.oI(r,B.A1,"Bahawalnagar, Punjab, Pakistan",s)],o),B.C,B.em),B.Id,A.fG(B.Cn,B.aC,B.L)],o),B.C,B.L),B.bb),s),B.aT,!0),q)}}
+return A.a3E(B.aB,A.ah_(!0,new A.dZ(B.fO,A.a5t(A.fG(A.c([new A.pH("About",s),B.ir,A.e2(A.c([p,A.cn("ME. ",A.aoB().$2$color$fontSize(B.cF,r?36:70),s)],o),B.C,B.el),A.fs(s,8,s),A.fG(A.c([new A.oI(r,B.A3,"+923009718469",s),new A.oI(r,B.A0,"hamzahussain0394@gmail.com",s),new A.oI(r,B.A1,"Bahawalnagar, Punjab, Pakistan",s)],o),B.C,B.d2),B.Id,A.fG(B.Cn,B.aC,B.L)],o),B.C,B.L),B.bb),s),B.aT,!0),q)}}
 A.oI.prototype={
 O(a){var s=null,r=A.aM(B.c.aj(178.5),B.f.B()>>>16&255,B.f.B()>>>8&255,B.f.B()&255),q=this.c,p=q?20:40
 p=A.au0(this.d,r,s,p)
@@ -66904,8 +66904,8 @@ O(a){var s=$.afu()
 return A.a3E(B.aB,A.a5t(new A.dZ(B.fO,A.fG(A.c([new A.pH("Home",null),new A.Hl(null),A.agC(new A.WS())],t.D),B.C,B.L),null),B.bb),s)}}
 A.WS.prototype={
 $2(a,b){var s=b.b
-if(s>900)return A.e2(B.Bu,B.C,B.d2)
-else if(s>600)return A.fG(A.c([A.e2(B.BF,B.C,B.d2),B.df,B.hf],t.D),B.C,B.L)
+if(s>900)return A.e2(B.Bu,B.C,B.em)
+else if(s>600)return A.fG(A.c([A.e2(B.BF,B.C,B.em),B.df,B.hf],t.D),B.C,B.L)
 else return A.fG(B.BR,B.C,B.L)},
 $S:432}
 A.Hl.prototype={
@@ -66917,7 +66917,7 @@ return A.Cv(s,A.ox(s,B.wt,s,b),B.J,s,new A.dN(r,s,q,s,s,s,B.dt),s,s,s,B.k7,s,s,s
 A.a5l.prototype={
 $2(a,b){var s=b.b<600,r=s?10:32,q=this.a
 if(s)q=A.fG(A.c([q.DK(a,70),B.ir,q.DN(!0)],t.D),B.C,B.L)
-else q=A.e2(A.c([A.ajY(q.DN(!1),2),A.ajY(q.DK(a,180),1)],t.D),B.C,B.d2)
+else q=A.e2(A.c([A.ajY(q.DN(!1),2),A.ajY(q.DK(a,180),1)],t.D),B.C,B.em)
 return new A.dZ(new A.bh(r,r,r,r),q,null)},
 $S:433}
 A.mL.prototype={
@@ -70566,9 +70566,9 @@ B.hB=new A.h(8589935094)
 B.L=new A.kG(0,"start")
 B.DX=new A.kG(1,"end")
 B.el=new A.kG(2,"center")
-B.em=new A.kG(3,"spaceBetween")
+B.d2=new A.kG(3,"spaceBetween")
 B.DY=new A.kG(4,"spaceAround")
-B.d2=new A.kG(5,"spaceEvenly")
+B.em=new A.kG(5,"spaceEvenly")
 B.DZ=new A.EL(0,"min")
 B.hH=new A.EL(1,"max")
 B.pA=new A.kH(B.dv,B.dv,t.Dx)
@@ -72849,7 +72849,7 @@ i=j[2]
 h=[400*d/(d+27.13),400*c/(c+27.13),400*i/(i+27.13)]
 return new A.a7l(l,(40*h[0]+20*h[1]+h[2])/20*k,k,k,a1,1,q,m,A.B0(m,0.25),1.48+e)})
 r($,"aGX","afu",()=>{var q,p=null,o=t.D
-o=A.c([new A.Dg(A.arZ(p,p,p,B.aB,p,p,B.bc),A.fG(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,50),p),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,50),p)],o),B.C,B.L),A.e2(A.c([A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/GitHub.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeW(),p,p,p,p),A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/linkedIn.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeX(),p,p,p,p),A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/Whatsapp.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeY(),p,p,p,p)],o),B.C,B.L)],o),B.C,B.d2),p),A.Y9(new A.aeZ(),A.cn("Home",A.f6().$1$color(B.f),p)),A.Y9(new A.af_(),A.cn("Projects",A.f6().$1$color(B.f),p)),A.Y9(new A.af0(),A.cn("About",A.f6().$1$color(B.f),p)),A.Y9(new A.af1(),A.cn("Resume",A.f6().$1$color(B.f),p))],o)
+o=A.c([new A.Dg(A.arZ(p,p,p,B.aB,p,p,B.bc),A.fG(A.c([A.e2(A.c([A.cn("Humza",A.B_().$2$color$fontSize(B.cF,30),p),B.iq,A.cn("Hussain",A.B_().$2$color$fontSize(B.f,30),p)],o),B.C,B.L),A.e2(A.c([A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/GitHub.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeW(),p,p,p,p),A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/linkedIn.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeX(),p,p,p,p),A.ja(!1,!0,A.ox(B.aB,p,A.i7("assets/icons/WhatsApp.png",p,p,p),p),p,!0,p,p,p,p,p,p,p,p,new A.aeY(),p,p,p,p)],o),B.C,B.L)],o),B.C,B.d2),p),A.Y9(new A.aeZ(),A.cn("Home",A.f6().$1$color(B.f),p)),A.Y9(new A.af_(),A.cn("Projects",A.f6().$1$color(B.f),p)),A.Y9(new A.af0(),A.cn("About",A.f6().$1$color(B.f),p)),A.Y9(new A.af1(),A.cn("Resume",A.f6().$1$color(B.f),p))],o)
 q=A.ax([null,0],A.a9("dU?"),t.S)
 return new A.De(B.aB,new A.ED(new A.a5E(!0,!0,!0,o,q),B.aT,B.bb,!1,p,p,B.wr,!1,p,5,B.aq,p,p,B.a6,B.ar,p),p)})
 s($,"aE7","Bf",()=>A.agc())
