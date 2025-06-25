@@ -10,8 +10,6 @@ const String web='assets/icons/web.png';
 const String bullet='assets/icons/bullet.png';
 const String github='assets/icons/GitHub.png';
 const String linkedin='assets/icons/linkedIn.png';
-<<<<<<< HEAD
+
 const String whatsapp='assets/icons/WhatsApp.png';
-=======
-const String whatsapp='assets/icons/WhatsApp.png';
->>>>>>> 8cd3c5ea955e3110e3346dfa9140ef6e6b60d608
+
