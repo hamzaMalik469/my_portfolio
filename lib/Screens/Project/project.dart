@@ -6,7 +6,6 @@ import 'package:my_portfolio/Utility/icons_strings.dart';
 import 'package:my_portfolio/Utility/strings.dart';
 import 'package:my_portfolio/models/project_model.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../Common Widgets/nav_bar.dart';
 import '../../Utility/colors.dart';
 
@@ -50,6 +49,17 @@ class Project extends StatelessWidget {
           'This mobile application was developed to help students and staff of Islamia University of Bahawalpur (IUB) track university transport in real time. Built using Flutter and integrated with Firebase, the app allows users to view the live location of university buses  and route information.',
       sourceCode: 'https://github.com/hamzaMalik469/iub_transport_app',
     ),
+    ProjectModel(
+        pics: [
+          "assets/images/meter1.jpg",
+          "assets/images/meter2.jpg",
+          "assets/images/meter3.jpg",
+          "assets/images/meter4.jpg",
+        ],
+        name: "Electric Meter App",
+        desc:
+            "This app allows users to add and manage electric meters by storing details like meter name, number, billing date, and readings. Users can input the latest readings, and the app automatically calculates the consumed units. Built using Flutter with Firebase backend and Provider for state management, the app also supports deletion of readings and updates total consumption accordingly. It provides an efficient solution for monitoring electricity usage.",
+        sourceCode: "https://github.com/hamzaMalik469/Meter-App/tree/master")
   ];
 
   void _launchURL(String url) async {
@@ -74,7 +84,7 @@ class Project extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                NavBar(selectedPage: 'Project'),
+                NavBar(selectedPage: 'Projects'),
                 const SizedBox(height: 20),
                 Text(
                   projectName,
@@ -168,7 +178,7 @@ class Project extends StatelessWidget {
                       ],
                     ),
                   );
-                }).toList(),
+                }),
               ],
             ),
           ),
@@ -183,7 +193,9 @@ class PicWidget extends StatelessWidget {
     super.key,
     required this.image,
     required this.width,
-    required this.height, required this.index, required this.pics,
+    required this.height,
+    required this.index,
+    required this.pics,
   });
 
   final String image;
@@ -198,12 +210,13 @@ class PicWidget extends StatelessWidget {
       padding: const EdgeInsets.all(6.0),
       child: Container(
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-        child: InkWell(onTap: () {
-          Get.toNamed('/Image', arguments: {
-            'images': pics,
-            'initialIndex': index,
-          });
-        },
+        child: InkWell(
+          onTap: () {
+            Get.toNamed('/Image', arguments: {
+              'images': pics,
+              'initialIndex': index,
+            });
+          },
           child: Image.asset(
             image,
             width: width,

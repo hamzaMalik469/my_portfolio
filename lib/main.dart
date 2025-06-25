@@ -30,11 +30,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/Home',
       getPages: [
         GetPage(name: '/Home', page: ()=> Home()),
-        GetPage(name: '/Project', page: ()=> Project()),
+        GetPage(name: '/Projects', page: ()=> Project()),
         GetPage(name: '/About', page: ()=> About()),
         GetPage(name: '/Image', page: ()=> ImageScreen())
-
-
       ],
     );
   }

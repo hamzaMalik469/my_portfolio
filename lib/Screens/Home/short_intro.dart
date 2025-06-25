@@ -12,9 +12,10 @@ class ShortIntro extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isMobile = constraints.maxWidth < 800;
+        double width= constraints.maxWidth;
 
         return Padding(
-          padding: const EdgeInsets.all(32.0),
+          padding:  EdgeInsets.all(isMobile? 10: 32.0),
           child: isMobile
               ? Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,7 +66,7 @@ class ShortIntro extends StatelessWidget {
             homeDes,
             textAlign: isMobile ? TextAlign.left : TextAlign.left,
             style:
-            GoogleFonts.inriaSerif(fontSize: isMobile ? 10 : 24, color: white),
+            GoogleFonts.inriaSerif(fontSize: isMobile ? 6 : 24, color: white),
           ),
         ),
       ],

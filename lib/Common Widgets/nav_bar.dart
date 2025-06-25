@@ -36,7 +36,7 @@ class NavBar extends StatelessWidget {
               Row(
                 children: [
                   _navItem("Home", "/Home"),
-                  _navItem("Projects", "/Project"),
+                  _navItem("Projects", "/Projects"),
                   _navItem("About", "/About"),
                   ElevatedButton(
                     onPressed: () {
@@ -44,7 +44,7 @@ class NavBar extends StatelessWidget {
                         // 👇 Safe use of html only for web
                         _openResumePDF();
                       } else {
-                        // Optional: Show a snackbar for mobile
+                        // Optional: Show a snack bar for mobile
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                               content:
