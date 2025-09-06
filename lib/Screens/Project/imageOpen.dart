@@ -59,7 +59,7 @@ class _ImageScreenState extends State<ImageScreen> {
               },
               itemBuilder: (context, index) {
                 return Center(
-                  child: Image.asset(
+                  child: Image.network(
                     images[index],
                     fit: BoxFit.contain,
                   ),
@@ -84,7 +84,8 @@ class _ImageScreenState extends State<ImageScreen> {
               left: 10,
               top: MediaQuery.of(context).size.height / 2 - 25,
               child: IconButton(
-                icon: const Icon(Icons.chevron_left, color: Colors.white, size: 40),
+                icon: const Icon(Icons.chevron_left,
+                    color: Colors.white, size: 40),
                 onPressed: () => _goToPage(currentIndex - 1),
               ),
             ),
@@ -95,7 +96,8 @@ class _ImageScreenState extends State<ImageScreen> {
               right: 10,
               top: MediaQuery.of(context).size.height / 2 - 25,
               child: IconButton(
-                icon: const Icon(Icons.chevron_right, color: Colors.white, size: 40),
+                icon: const Icon(Icons.chevron_right,
+                    color: Colors.white, size: 40),
                 onPressed: () => _goToPage(currentIndex + 1),
               ),
             ),

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:get/get.dart';
 import 'package:flutter/foundation.dart'; // for kIsWeb
+import 'package:my_portfolio/models/about_model.dart';
+import 'package:my_portfolio/provider/about_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../Utility/colors.dart';
 import 'dart:html' as html;
@@ -15,6 +18,8 @@ class NavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<AboutProvider>(context);
+    final AboutModel about = provider.about.first;
 
     void _launchURL(String url) async {
       final uri = Uri.parse(url);
@@ -24,6 +29,7 @@ class NavBar extends StatelessWidget {
         throw 'Could not launch $url';
       }
     }
+
     return LayoutBuilder(
       builder: (context, constraints) {
         if (constraints.maxWidth > 800) {
@@ -87,7 +93,7 @@ class NavBar extends StatelessWidget {
                     onPressed: () {
                       if (kIsWeb) {
                         // 👇 Safe use of html only for web
-                        _openResumePDF();
+                        _openResumePDF(about.resumeUrl);
                       } else {
                         // Optional: Show a snack bar for mobile
                         ScaffoldMessenger.of(context).showSnackBar(
@@ -157,10 +163,10 @@ class NavBar extends StatelessWidget {
   }
 
   // ✅ Web-only function to open resume
-  void _openResumePDF() {
+  void _openResumePDF(String resumeUrl) {
     // Only import html if you're running on web
     // ignore: avoid_web_libraries_in_flutter
 
-    html.window.open('resume.pdf', '_blank');
+    html.window.open(resumeUrl, '_blank');
   }
 }

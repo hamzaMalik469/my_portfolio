@@ -39,6 +39,8 @@ dependencies:
   url_launcher: ^6.2.5
   firebase_core: ^2.30.0
   url_strategy: ^0.2.0
+  cloud_firestore: ^4.17.5
+  provider: ^6.1.5+1
 
 
 dev_dependencies:

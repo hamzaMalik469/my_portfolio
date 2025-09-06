@@ -5,6 +5,9 @@ import 'package:my_portfolio/Screens/About/about.dart';
 import 'package:my_portfolio/Screens/Home/home.dart';
 import 'package:my_portfolio/Screens/Project/imageOpen.dart';
 import 'package:my_portfolio/Screens/Project/project.dart';
+import 'package:my_portfolio/provider/about_provider.dart';
+import 'package:my_portfolio/provider/project_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:url_strategy/url_strategy.dart';
 import 'firebase_options.dart';
 
@@ -14,7 +17,15 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ProjectProvider()),
+        ChangeNotifierProvider(create: (_) => AboutProvider()..fetchAbout()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -29,10 +40,10 @@ class MyApp extends StatelessWidget {
       home: Home(),
       initialRoute: '/Home',
       getPages: [
-        GetPage(name: '/Home', page: ()=> Home()),
-        GetPage(name: '/Projects', page: ()=> Project()),
-        GetPage(name: '/About', page: ()=> About()),
-        GetPage(name: '/Image', page: ()=> ImageScreen())
+        GetPage(name: '/Home', page: () => Home()),
+        GetPage(name: '/Projects', page: () => Project()),
+        GetPage(name: '/About', page: () => About()),
+        GetPage(name: '/Image', page: () => ImageScreen())
       ],
     );
   }
