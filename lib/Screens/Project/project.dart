@@ -59,13 +59,7 @@ class _ProjectState extends State<Project> {
                   children: [
                     NavBar(selectedPage: 'Projects'),
                     const SizedBox(height: 20),
-                    Text(
-                      projectName,
-                      style: GoogleFonts.abhayaLibre(
-                        fontSize: isMobile ? 25 : 70,
-                        color: white,
-                      ),
-                    ),
+
                     const SizedBox(height: 30),
 
                     // 🔹 Render projects dynamically
