@@ -17,61 +17,58 @@ void _launchURL(String url) async {
 }
 
 Drawer myDrawer = Drawer(
-  backgroundColor: blue,
+  backgroundColor: primaryColor,
   child: ListView(
     padding: EdgeInsets.zero,
     children: [
       DrawerHeader(
-          decoration: BoxDecoration(color: blue),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Text("Humza",
-                      style:
-                          GoogleFonts.islandMoments(color: red, fontSize: 30)),
-                  const SizedBox(width: 5),
-                  Text("Hussain",
-                      style: GoogleFonts.islandMoments(
-                          color: white, fontSize: 30)),
-                ],
-              ),
-              Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      _launchURL('https://github.com/hamzaMalik469');
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: blue,
-                      child: Image.asset(github),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      _launchURL(
-                          'https://www.linkedin.com/in/hamza-hussain-431132283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=web');
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: blue,
-                      child: Image.asset(linkedin),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      _launchURL(
-                          'https://wa.me/923009718469'); // Replace with your WhatsApp number
-                    },
-                    child: CircleAvatar(
-                      backgroundColor: blue,
-                      child: Image.asset(whatsapp),
-                    ),
-                  ),
-                ],
-              )
+              Text("Humza",
+                  style: GoogleFonts.islandMoments(color: red, fontSize: 30)),
+              const SizedBox(width: 5),
+              Text("Hussain",
+                  style: GoogleFonts.islandMoments(color: white, fontSize: 30)),
             ],
-          )),
+          ),
+          Row(
+            children: [
+              InkWell(
+                onTap: () {
+                  _launchURL('https://github.com/hamzaMalik469');
+                },
+                child: CircleAvatar(
+                  backgroundColor: blue,
+                  child: Image.asset(github),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  _launchURL(
+                      'https://www.linkedin.com/in/hamza-hussain-431132283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=web');
+                },
+                child: CircleAvatar(
+                  backgroundColor: blue,
+                  child: Image.asset(linkedin),
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  _launchURL(
+                      'https://wa.me/923009718469'); // Replace with your WhatsApp number
+                },
+                child: CircleAvatar(
+                  backgroundColor: blue,
+                  child: Image.asset(whatsapp),
+                ),
+              ),
+            ],
+          )
+        ],
+      )),
       ListTile(
         title: Text('Home', style: GoogleFonts.inriaSerif(color: white)),
         onTap: () => Get.toNamed("/Home"),

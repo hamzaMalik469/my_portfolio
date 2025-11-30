@@ -32,101 +32,105 @@ class About extends StatelessWidget {
 
     return Scaffold(
       drawer: myDrawer,
-      backgroundColor: blue,
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                NavBar(selectedPage: 'About'),
-                const SizedBox(height: 24),
+      backgroundColor: primaryColor,
+      body: Container(
+        decoration: const BoxDecoration(color: primaryColor),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  NavBar(selectedPage: 'About'),
+                  const SizedBox(height: 24),
 
-                // 🔹 Title
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("About ",
-                        style: GoogleFonts.abhayaLibre(
-                            fontSize: isMobile ? 36 : 70, color: white)),
-                    Text("ME.",
-                        style: GoogleFonts.aladin(
-                            fontSize: isMobile ? 36 : 70, color: red)),
-                  ],
-                ),
+                  // 🔹 Title
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("About ",
+                          style: GoogleFonts.abhayaLibre(
+                              fontSize: isMobile ? 36 : 70, color: white)),
+                      Text("ME.",
+                          style: GoogleFonts.aladin(
+                              fontSize: isMobile ? 36 : 70, color: red)),
+                    ],
+                  ),
 
-                const SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-                // 🔹 Contact Info
-                Column(
-                  children: List.generate(about.contactList.length, (index) {
-                    IconData icon;
-                    switch (index) {
-                      case 0:
-                        icon = Icons.phone;
-                        break;
-                      case 1:
-                        icon = Icons.email;
-                        break;
-                      case 2:
-                        icon = Icons.home;
-                        break;
-                      default:
-                        icon = Icons.contact_mail; // fallback
-                    }
+                  // 🔹 Contact Info
+                  Column(
+                    children: List.generate(about.contactList.length, (index) {
+                      IconData icon;
+                      switch (index) {
+                        case 0:
+                          icon = Icons.phone;
+                          break;
+                        case 1:
+                          icon = Icons.email;
+                          break;
+                        case 2:
+                          icon = Icons.home;
+                          break;
+                        default:
+                          icon = Icons.contact_mail; // fallback
+                      }
 
-                    return ContactInfo(
-                      isMobile: isMobile,
-                      icon: icon,
-                      text: about.contactList[index],
-                    );
-                  }),
-                ),
+                      return ContactInfo(
+                        isMobile: isMobile,
+                        icon: icon,
+                        text: about.contactList[index],
+                      );
+                    }),
+                  ),
 
-                const SizedBox(height: 32),
+                  const SizedBox(height: 32),
 
-                // 🔹 Info Boxes
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    AboutBox(
-                        catagory: "Short Introduction", des: about.shortIntro),
-                    AboutBox(catagory: "Background", des: about.background),
-                    AboutBox(
-                      catagory: "Skills & Tech Stack",
-                      des: "", // not used now
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: about.skills.map((skill) {
-                          return Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("• ",
-                                  style: GoogleFonts.inriaSerif(
-                                      fontSize: isMobile ? 10 : 28,
-                                      color: white),
-                                  textAlign: isMobile
-                                      ? TextAlign.justify
-                                      : TextAlign.left), // bullet
-                              Expanded(
-                                child: Text(
-                                  skill,
-                                  style: GoogleFonts.inriaSerif(
-                                      fontSize: isMobile ? 10 : 28,
-                                      color: white),
-                                  textAlign: isMobile
-                                      ? TextAlign.justify
-                                      : TextAlign.left,
+                  // 🔹 Info Boxes
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AboutBox(
+                          catagory: "Short Introduction",
+                          des: about.shortIntro),
+                      AboutBox(catagory: "Background", des: about.background),
+                      AboutBox(
+                        catagory: "Skills & Tech Stack",
+                        des: "", // not used now
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: about.skills.map((skill) {
+                            return Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("• ",
+                                    style: GoogleFonts.inriaSerif(
+                                        fontSize: isMobile ? 10 : 28,
+                                        color: white),
+                                    textAlign: isMobile
+                                        ? TextAlign.justify
+                                        : TextAlign.left), // bullet
+                                Expanded(
+                                  child: Text(
+                                    skill,
+                                    style: GoogleFonts.inriaSerif(
+                                        fontSize: isMobile ? 10 : 28,
+                                        color: white),
+                                    textAlign: isMobile
+                                        ? TextAlign.justify
+                                        : TextAlign.left,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          );
-                        }).toList(),
+                              ],
+                            );
+                          }).toList(),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ),
